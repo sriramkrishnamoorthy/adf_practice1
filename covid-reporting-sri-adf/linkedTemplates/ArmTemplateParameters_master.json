@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "covid-reporting-sri-adf"
+		},
+		"ls_ablob_covidreportingsasri_connectionString": {
+			"value": ""
+		},
+		"ls_adls_covidreportingdlsri_accountKey": {
+			"value": ""
+		},
+		"ls_adls_covidreportingdlsri_properties_typeProperties_url": {
+			"value": "https://covidreportingdlsri.dfs.core.windows.net"
+		},
+		"ls_http_opendata_ecdc_europa_eu_properties_typeProperties_url": {
+			"value": "@{linkedService().SourceBaseURL}"
+		},
+		"tr_ingest_population_data_properties_typeProperties_scope": {
+			"value": "/subscriptions/7dfa7c73-f1ac-4cc1-b312-baff36533ac8/resourceGroups/covid-reporting-rg/providers/Microsoft.Storage/storageAccounts/covidreportingsasri"
+		},
+		"trigger1_properties_pipeline1_parameters_num": {
+			"value": 45
+		},
+		"trigger1_properties_pipeline1_parameters_denom": {
+			"value": 15
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
