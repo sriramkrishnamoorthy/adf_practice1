@@ -1,0 +1,65 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "output_of_divide",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "out_var",
+					"value": {
+						"value": "@string(div(pipeline().parameters.num,pipeline().parameters.denom))",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"num": {
+				"type": "int"
+			},
+			"denom": {
+				"type": "int"
+			}
+		},
+		"variables": {
+			"var_str": {
+				"type": "String",
+				"defaultValue": "testvar"
+			},
+			"var_arr_str": {
+				"type": "Array",
+				"defaultValue": [
+					"Sri",
+					"Ram"
+				]
+			},
+			"var_arr_int": {
+				"type": "Array",
+				"defaultValue": [
+					0,
+					1,
+					2
+				]
+			},
+			"var_bool": {
+				"type": "Boolean",
+				"defaultValue": true
+			},
+			"numerator": {
+				"type": "String"
+			},
+			"denominator": {
+				"type": "String"
+			},
+			"out_var": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2022-06-13T11:43:59Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

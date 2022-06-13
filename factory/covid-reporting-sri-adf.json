@@ -1,0 +1,9 @@
+{
+	"name": "covid-reporting-sri-adf",
+	"location": "southindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "7285eeb2-9aa6-4e39-8557-bec51f9f7aeb",
+		"tenantId": "dbb68607-1893-4249-ad78-5159493e11c2"
+	}
+}
