@@ -5,7 +5,14 @@
 			{
 				"name": "output_of_divide",
 				"type": "SetVariable",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Wait1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
 					"variableName": "out_var",
@@ -13,6 +20,15 @@
 						"value": "@string(div(pipeline().parameters.num,pipeline().parameters.denom))",
 						"type": "Expression"
 					}
+				}
+			},
+			{
+				"name": "Wait1",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
 				}
 			}
 		],
