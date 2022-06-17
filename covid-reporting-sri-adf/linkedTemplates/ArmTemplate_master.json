@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_adls_covidreportingdlsri'"
 		},
+		"ls_azure_sql_db_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_azure_sql_db'"
+		},
 		"ls_adls_covidreportingdlsri_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://covidreportingdlsri.dfs.core.windows.net"
@@ -68,6 +72,9 @@
 					"ls_adls_covidreportingdlsri_accountKey": {
 						"value": "[parameters('ls_adls_covidreportingdlsri_accountKey')]"
 					},
+					"ls_azure_sql_db_connectionString": {
+						"value": "[parameters('ls_azure_sql_db_connectionString')]"
+					},
 					"ls_adls_covidreportingdlsri_properties_typeProperties_url": {
 						"value": "[parameters('ls_adls_covidreportingdlsri_properties_typeProperties_url')]"
 					},
@@ -79,13 +86,33 @@
 					},
 					"trigger1_properties_pipeline1_parameters_denom": {
 						"value": "[parameters('trigger1_properties_pipeline1_parameters_denom')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "covid-reporting-sri-adf_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
 					},
 					"tr_ingest_population_data_properties_typeProperties_scope": {
 						"value": "[parameters('tr_ingest_population_data_properties_typeProperties_scope')]"
 					}
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'covid-reporting-sri-adf_ArmTemplate_0')]"
+			]
 		}
 	]
 }

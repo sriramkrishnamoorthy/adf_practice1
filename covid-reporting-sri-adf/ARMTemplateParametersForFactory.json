@@ -11,6 +11,9 @@
 		"ls_adls_covidreportingdlsri_accountKey": {
 			"value": ""
 		},
+		"ls_azure_sql_db_connectionString": {
+			"value": ""
+		},
 		"ls_adls_covidreportingdlsri_properties_typeProperties_url": {
 			"value": "https://covidreportingdlsri.dfs.core.windows.net"
 		},
