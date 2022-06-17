@@ -26,6 +26,7 @@
 						"preCopyScript": "DROP TABLE IF EXISTS dbo.All_sales_data",
 						"writeBehavior": "insert",
 						"sqlWriterUseTableLock": false,
+						"tableOption": "autoCreate",
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
